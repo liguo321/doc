@@ -1,1 +1,26 @@
 sed -ig 's/tags:.*/tags: gogo:123:abc:456/g' ./src/main/resources/bootstrap.yml
+
+
+
+
+curl -X POST http://<jenkins URL>/jenkins/job/TESTS/job/<Your job's Name>/buildWithParameters 
+ --user <Jenkins account>:<account's TokenID> 
+ --data token=<job's token (if required)> 
+ --data MessageText=Le%20Texte
+
+
+ curl -X POST \
+ http://rest:00118045a097b9d50ffe1617d9c690c8@192.168.32.180:8080/jenkins/job/rest-test/build \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'content-type: multipart/form-data;  \
+  -d port=80
+  -F 'json={"parameter":[{"name":"choice_param","value":"a"},{"name":"string_param","value":"ddd"}]}'
+
+
+
+curl -X POST \
+http://rest:00118045a097b9d50ffe1617d9c690c8@192.168.32.180:8080/jenkins/job/rest-test/build \
+  -H 'Postman-Token: d4f3e2b8-8098-4899-8c6c-835c198e74fb' \
+  -H 'content-type: multipart/form-data; \
+  -F 'json={"parameter":[{"name":"choice_param","value":"a"},{"name":"string_param","value":"ddd"},{"name":"test-file.yaml","file":"file0"}]}' \
+  -F file0=@/Users/peng/Desktop/test.yaml
