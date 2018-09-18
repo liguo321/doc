@@ -1,0 +1,1 @@
+sed -ig 's/tags:.*/tags: gogo:123:abc:456/g' ./src/main/resources/bootstrap.yml
