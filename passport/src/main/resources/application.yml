@@ -1,0 +1,11 @@
+login:
+  types:
+    - name: common
+      service-class: com.lens.cloud.passport.service.impl.CommonLoginService
+      param-class: com.lens.cloud.passport.service.impl.CommonLoginService$Param
+    - name: qq
+      service-class: com.lens.cloud.passport.service.impl.QqLoginService
+      param-class: com.lens.cloud.passport.service.impl.QqLoginService$Param
+    - name: wx
+      service-class: com.lens.cloud.passport.service.impl.WxLoginService
+      param-class: com.lens.cloud.passport.service.impl.WxLoginService$Param
