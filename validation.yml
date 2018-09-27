@@ -1,0 +1,18 @@
+validate_bean:
+  - id: 1
+  - name: 中台用户
+  - class_name: com.lens.cloud.middle.beans.User
+  - status: 1
+
+validate_field:
+  - id: 1
+  - bean_id: 1
+  - name: email
+  - comment: 邮箱
+  - rule_type: regex|class|url
+  - rule: ^...$  |  com.lens.cloud.middle.validate.EmailValidateService implements IValidateService @Service |
+          http://www.lens.com/validate/{param} { success: false }
+  - status: 1
+
+  
+https://juejin.im/post/5b4604c8f265da0f6131f27a
