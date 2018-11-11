@@ -1,0 +1,1 @@
+response.addHeader("Set-Cookie", "access_token=?token;Path=/;HttpOnly");
