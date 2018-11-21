@@ -118,6 +118,80 @@ daemonize yes
 
 
 
+### master-slave
+
+三台服务器安装好redis后 make / make install / make test
+
+cd /opt/data/program
+
+mkdir redis
+
+cd redis-3.2.8
+
+make install PREFIX=/opt/data/program/redis
+
+cd ../redis
+
+cp ../redis-3.2.8/redis.conf redis.conf
+
+vim redis.conf
+
+```properties
+# bind 127.0.0.1
+daemonize yes
+protected-mode no
+```
+
+* 主
+
+* 从
+
+  `slaveof 主ip 6379`
+
+  读取同步数据策略 `slave-serve-stale-data yes/no`
+
+ 重启
+
+```shell
+cd bin
+./redis-cli shutdown
+./redis-server ../redis.conf
+./redis-cli
+>info replication
+```
+
+从节点测试同步
+
+replconf listening-port 6379
+
+sync
+
+* 哨兵
+
+  备份 cp redis.conf redis.conf.bak
+
+  ```shell
+  cd redis
+  cp ../redis-3.2.8/sentinel.conf sentinel.conf
+  vim sentinel.conf
+  port 
+  sentinel monitor mymaster masterip 6379 1
+  
+  cd bin
+  ./redis-sentinel ../sentinel.conf
+  --test
+  ./redis-cli shutdown  //master
+  
+  --哨兵集群
+  在每个哨兵配置同样的master
+  ```
+
+### 集群(数据分片)
+
+* codis代理
+
+
+
 ## windows
 
 ```properties
@@ -140,7 +214,13 @@ redis-server --service-start redis.windows-service.conf
 
 
 
+# 方案
 
+[springboot redis 分布式锁](https://www.cnblogs.com/carrychan/p/9431137.html)
+
+* 主从数据不同步
+
+  将主的rdb文件copy至从
 
 
 
