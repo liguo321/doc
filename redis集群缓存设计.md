@@ -189,6 +189,14 @@ sync
 ### 集群(数据分片)
 
 * codis代理
+* cluster
+
+
+
+### ip
+
+* 哨兵模式   哨兵集群ip  sentinel
+* 集群ip  master节点ip   cluster
 
 
 
