@@ -232,3 +232,11 @@ redis-server --service-start redis.windows-service.conf
 
 
 
+* python redis客户端
+
+  import redis
+
+  conn = redis.Redis()
+
+
+
