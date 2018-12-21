@@ -1,8 +1,0 @@
-response.addHeader("Set-Cookie", "access_token=?token;Path=/;HttpOnly");
-
-1. 分布式session\跨域cookie问题
-   网关写响应到浏览器时,response.setcookie....覆盖feign的cookie
-2. 微服务第一次请求失败问题
-	Ribbon客户端的懒加载
-   各服务添加 ribbon.eager-load.enabled=true
-   			zuul.ribbon.eager-load.enabled=true
